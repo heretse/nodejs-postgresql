@@ -1,0 +1,32 @@
+version: "3"
+services:
+  # app:
+  #   build: .
+  #   entrypoint: ["python3", "/app/run.py"]
+  #   command: "/fix-data/${RUN_FILE}"
+  #   ports:
+  #     - 8080:8080
+  #   volumes:
+  #     - ./src:/app
+  #     - ./fix-data/dev:/fix-data
+  #   environment:
+  #     - DB_HOST=postgres
+  #     - DB_PORT=5432
+  #     - DB_NAME=mydb
+  #     - DB_USER=postgres
+  #     - DB_PASSWORD=MyPGP@ssword
+  #   depends_on:
+  #     - postgres
+
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+    - 5432:5432
+    environment:
+      POSTGRES_DB: northwind
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+    - ./postgresql_data:/var/lib/postgresql/data
+    - ./northwind.sql:/docker-entrypoint-initdb.d/northwind.sql    
