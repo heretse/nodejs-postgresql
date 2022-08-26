@@ -18,6 +18,7 @@
     "url": "git://github.com/dannibla/nodejs-postgresql.git"
   },
   "scripts": {
+    "build": "rm -rf node_modules; npm install --production",
     "start": "node app.js"
   },
   "author": "Daniel Abraham <dannibla@outlook.com>",
